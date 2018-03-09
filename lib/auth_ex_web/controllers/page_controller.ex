@@ -5,7 +5,7 @@ defmodule AuthExWeb.PageController do
   alias AuthEx.Auth.Guardian
 
   def index(conn, _params) do
-    changeset = Auth.change_user(%{})
+    changeset = %{}
     maybe_user = Guardian.Plug.current_resource(conn)
     message = if maybe_user != nil do
       "Someone is logged in"

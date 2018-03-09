@@ -17,12 +17,6 @@ defmodule AuthEx.Auth.Auth do
   end
 
 
-  @doc """
-  """
-  def change_user(%{} = user) do
-    user
-  end
-
   def authenticate_user(username, plain_text_password) do
     {:ok, ldap_conn} = Exldap.open
     bind = "uid=#{username},dc=example,dc=com"
