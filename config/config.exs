@@ -8,7 +8,7 @@ use Mix.Config
 # Configures the endpoint
 config :auth_ex, AuthExWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "bYNzkfDZ2UN+R42jB1kXslSs2maa3/s9rhC+hrzfnrJK5vQOaMSLc5ieI4eY9YhL",
+  secret_key_base: "", # Replace this with the output of the mix command
   render_errors: [view: AuthExWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: AuthEx.PubSub,
            adapter: Phoenix.PubSub.PG2]
@@ -20,7 +20,7 @@ config :logger, :console,
 
 config :auth_ex, AuthEx.Auth.Guardian,
        issuer: "auth_ex", # Name of your app/company/product
-       secret_key: "5lTTQ/GueduCtpMJzYyTVVzOJGc4HcpPiY1v+LcsUxOyA7lJH2ZNHuYkFF28ejLt" # Replace this with the output of the mix command
+       secret_key: "" # Replace this with the output of the mix command
 
 config :exldap, :settings,
        server: "ldap.forumsys.com",
