@@ -26,11 +26,7 @@ defmodule AuthExWeb.ChannelCase do
   end
 
 
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(AuthEx.Repo)
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(AuthEx.Repo, {:shared, self()})
-    end
+  setup _tags do
     :ok
   end
 

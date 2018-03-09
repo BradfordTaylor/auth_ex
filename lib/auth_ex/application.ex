@@ -8,8 +8,6 @@ defmodule AuthEx.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
-      supervisor(AuthEx.Repo, []),
       # Start the endpoint when the application starts
       supervisor(AuthExWeb.Endpoint, []),
       # Start your own worker by calling: AuthEx.Worker.start_link(arg1, arg2, arg3)

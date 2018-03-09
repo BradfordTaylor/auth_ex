@@ -36,7 +36,7 @@ defmodule AuthExWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_auth_ex_key",
-    signing_salt: "jJ5TkcBB"
+    signing_salt: "enMMkGnM"
 
   plug AuthExWeb.Router
 

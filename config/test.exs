@@ -8,12 +8,3 @@ config :auth_ex, AuthExWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :auth_ex, AuthEx.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "auth_ex_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox

@@ -9,6 +9,16 @@ defmodule AuthExWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :api do
+    plug :accepts, ["json"]
+  end
+
+  #  scope "/", AuthExWeb do
+  #    pipe_through :browser # Use the default browser stack
+  #
+  #    get "/", PageController, :index
+  #  end
+
   pipeline :auth do
     plug AuthEx.Auth.Pipeline
   end
@@ -20,6 +30,7 @@ defmodule AuthExWeb.Router do
   # Maybe logged in scope
   scope "/", AuthExWeb do
     pipe_through [:browser, :auth]
+
     get "/", PageController, :index
     post "/", PageController, :login
     post "/logout", PageController, :logout
@@ -28,6 +39,11 @@ defmodule AuthExWeb.Router do
   # Definitely logged in scope
   scope "/", AuthExWeb do
     pipe_through [:browser, :auth, :ensure_auth]
+
     get "/secret", PageController, :secret
   end
+  # Other scopes may use custom stacks.
+  # scope "/api", AuthExWeb do
+  #   pipe_through :api
+  # end
 end

@@ -5,14 +5,10 @@
 # is restricted to this project.
 use Mix.Config
 
-# General application configuration
-config :auth_ex,
-  ecto_repos: [AuthEx.Repo]
-
 # Configures the endpoint
 config :auth_ex, AuthExWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "+98SbYAQ5u/E2crhFwiBoPF/mrulgnTOvc68XsjjsHvctSbmyDIIwGU7rmiPrVgn",
+  secret_key_base: "bYNzkfDZ2UN+R42jB1kXslSs2maa3/s9rhC+hrzfnrJK5vQOaMSLc5ieI4eY9YhL",
   render_errors: [view: AuthExWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: AuthEx.PubSub,
            adapter: Phoenix.PubSub.PG2]
@@ -23,8 +19,17 @@ config :logger, :console,
   metadata: [:request_id]
 
 config :auth_ex, AuthEx.Auth.Guardian,
-  issuer: "auth_ex", # Name of your app/company/product
-  secret_key: "foobar" # Don't check-in real keys!
+       issuer: "auth_ex", # Name of your app/company/product
+       secret_key: "5lTTQ/GueduCtpMJzYyTVVzOJGc4HcpPiY1v+LcsUxOyA7lJH2ZNHuYkFF28ejLt" # Replace this with the output of the mix command
+
+config :exldap, :settings,
+       server: "ldap.forumsys.com",
+       base: "dc=example,dc=com",
+       port: 389,
+       ssl: false,
+       user_dn: "cn=read-only-admin,dc=example,dc=com",
+       password: "password",
+       search_timeout: 5_000
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
